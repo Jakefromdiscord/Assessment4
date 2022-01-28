@@ -34,6 +34,13 @@ app.post('/api/compliment', (req, res) => {
     res.status(200).send(randomCompliment)
 })
 
+app.delete('/api/compliment', (req, res) => {
+  let {id} = req.params
+  let index = compliments.findIndex(comp => +comp.id === +id)
+  compliments.splice(index, 1)
+  res.status(200).send(randomCompliment)
+})
+
 
 
 app.get("/api/compliment", (req, res) => {
